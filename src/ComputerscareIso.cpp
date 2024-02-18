@@ -111,7 +111,7 @@ struct ComputerscareIsoWidget : ModuleWidget {
 			smallLetterDisplay->box.pos = Vec(x + 22, y + 2);
 		}
 		else if (type == 1) {
-			addParam(createParam<SmallKnob>(Vec(x, y), module, ComputerscareIso::KNOB + index));
+			addParam(createParam<ComputerscareSmallKnob>(Vec(x, y), module, ComputerscareIso::KNOB + index));
 			smallLetterDisplay->box.pos = Vec(x + 12, y - 10);
 		}
 		else if (type == 2) {

@@ -5,14 +5,14 @@ namespace rack {
 namespace app {
 
 
-void PanelBorder::draw(const DrawArgs &ctx) {
-	NVGcolor borderColor = nvgRGBAf(0.5, 0.5, 0.5, 0.5);
-	nvgBeginPath(ctx.vg);
-	nvgRect(ctx.vg, 0.5, 0.5, box.size.x - 1.0, box.size.y - 1.0);
-	nvgStrokeColor(ctx.vg, borderColor);
-	nvgStrokeWidth(ctx.vg, 1.0);
+//void PanelBorder::draw(const DrawArgs &ctx) {
+//	NVGcolor borderColor = nvgRGBAf(0.5, 0.5, 0.5, 0.5);
+//	nvgBeginPath(ctx.vg);
+//	nvgRect(ctx.vg, 0.5, 0.5, box.size.x - 1.0, box.size.y - 1.0);
+//	nvgStrokeColor(ctx.vg, borderColor);
+//	nvgStrokeWidth(ctx.vg, 1.0);
 	//nvgStroke(ctx.vg);
-}
+//}
 
 
 void ComputerscareSVGPanel::step() {

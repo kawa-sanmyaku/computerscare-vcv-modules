@@ -43,7 +43,7 @@ static const NVGcolor COLOR_COMPUTERSCARE_YELLOW = nvgRGB(0xE4, 0xC4, 0x21);
 static const NVGcolor COLOR_COMPUTERSCARE_BLUE = nvgRGB(0x24, 0x44, 0xC1);
 static const NVGcolor COLOR_COMPUTERSCARE_PINK = nvgRGB(0xAA, 0x18, 0x31);
 static const NVGcolor COLOR_COMPUTERSCARE_TRANSPARENT = nvgRGBA(0x00, 0x00, 0x00, 0x00);
-static const NVGcolor BLACK = nvgRGB(0x00, 0x00, 0x00);
+static const NVGcolor COLOR_COMPUTERSCARE_BLACK = nvgRGB(0x00, 0x00, 0x00);
 
 
 namespace rack {
@@ -74,10 +74,10 @@ struct ComputerscareSvgPort : PortWidget {
 
 } // namespace app
 } // namespace rack
-struct BGPanel : Widget {
+struct ComputerscareBGPanel : Widget {
 	NVGcolor color;
 
-	BGPanel(NVGcolor _color) {
+	ComputerscareBGPanel(NVGcolor _color) {
 		color = _color;
 	}
 
@@ -376,8 +376,8 @@ struct SmoothKnobNoRandom : RoundKnob {
 		setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/computerscare-medium-knob-effed.svg")));
 	}
 };
-struct SmallKnob : RoundKnob {
-	SmallKnob() {
+struct ComputerscareSmallKnob : RoundKnob {
+	ComputerscareSmallKnob() {
 		setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/computerscare-small-knob-effed.svg")));
 	}
 };
@@ -425,7 +425,7 @@ struct BigSmoothKnob : RoundKnob {
 		setSvg(APP->window->loadSvg(asset::plugin(pluginInstance, "res/computerscare-big-knob-effed.svg")));
 	}
 };
-struct ComputerscareDotKnob : SmallKnob {
+struct ComputerscareDotKnob : ComputerscareSmallKnob {
 	ComputerscareDotKnob() {
 
 	}
@@ -465,13 +465,13 @@ struct ComputerscareTextField : ui::TextField {
 			drawText(args);
 		}
 	}
-	void drawLayer(const BGPanel::DrawArgs& args, int layer) override {
+	void drawLayer(const ComputerscareBGPanel::DrawArgs& args, int layer) override {
 		if (layer == 1 && !dimWithRoom) {
 			drawText(args);
 		}
 		Widget::drawLayer(args, layer);
 	}
-	void drawText(const BGPanel::DrawArgs& args) {
+	void drawText(const ComputerscareBGPanel::DrawArgs& args) {
 		std::shared_ptr<Font> font = APP->window->loadFont(asset::system(fontPath));
 		if (font) {
 			// Text
