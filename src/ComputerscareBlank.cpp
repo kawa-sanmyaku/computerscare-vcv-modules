@@ -1098,7 +1098,7 @@ struct ComputerscareBlankWidget : ModuleWidget {
 			box.size = Vec(8 * 15, 380);
 		}
 		{
-			ComputerscareBGPanel *bgPanel = new ComputerscareBGPanel(nvgRGB(0xE0, 0xE0, 0xD9));
+			ComputerscareBGPanel *bgPanel = new ComputerscareBGPanel(settings::preferDarkPanels ? nvgRGB(0x2D, 0x2D, 0x2D) : nvgRGB(0xE0, 0xE0, 0xD9));
 			bgPanel->box.size = box.size;
 			this->bgPanel = bgPanel;
 			addChild(bgPanel);
