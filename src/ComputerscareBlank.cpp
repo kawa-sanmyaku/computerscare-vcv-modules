@@ -911,6 +911,11 @@ struct tPNGDisplay : TBase {
 	}
 	void draw(const rack::Widget::DrawArgs &args) override {
 		if (!lightWidgetMode) {
+			nvgBeginPath(args.vg);
+			nvgRect(args.vg, 0.0, 0.0, blankModule->width, blankModule->height);
+			nvgFillColor(args.vg, settings::preferDarkPanels ? nvgRGB(0x2d, 0x2d, 0x2d) : nvgRGB(0xe0, 0xe0, 0xd9));
+			nvgFill(args.vg);
+			//Widget::draw(args);
 			drawImage(args);
 		}
 	}
@@ -1098,7 +1103,7 @@ struct ComputerscareBlankWidget : ModuleWidget {
 			box.size = Vec(8 * 15, 380);
 		}
 		{
-			ComputerscareBGPanel *bgPanel = new ComputerscareBGPanel(settings::preferDarkPanels ? nvgRGB(0x2D, 0x2D, 0x2D) : nvgRGB(0xE0, 0xE0, 0xD9));
+			ComputerscareBGPanel *bgPanel = new ComputerscareBGPanel(nvgRGBA(0x00, 0x00, 0x00, 0x00));
 			bgPanel->box.size = box.size;
 			this->bgPanel = bgPanel;
 			addChild(bgPanel);
