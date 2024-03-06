@@ -911,11 +911,6 @@ struct tPNGDisplay : TBase {
 	}
 	void draw(const rack::Widget::DrawArgs &args) override {
 		if (!lightWidgetMode) {
-			nvgBeginPath(args.vg);
-			nvgRect(args.vg, 0.0, 0.0, blankModule->width, blankModule->height);
-			nvgFillColor(args.vg, settings::preferDarkPanels ? nvgRGB(0x2d, 0x2d, 0x2d) : nvgRGB(0xe0, 0xe0, 0xd9));
-			nvgFill(args.vg);
-			//Widget::draw(args);
 			drawImage(args);
 		}
 	}
@@ -1138,6 +1133,14 @@ struct ComputerscareBlankWidget : ModuleWidget {
 		frameDisplay->module = blankModule;
 		addChild(frameDisplay);
 
+	}
+
+	void draw(const ComputerscareBGPanel::DrawArgs &args) {
+		nvgBeginPath(args.vg);
+		nvgRect(args.vg, 0.0, 0.0, blankModule->width, blankModule->height);
+		nvgFillColor(args.vg, settings::preferDarkPanels ? nvgRGB(0x2d, 0x2d, 0x2d) : nvgRGB(0xe0, 0xe0, 0xd9));
+		nvgFill(args.vg);
+		Widget::draw(args);
 	}
 
 	void appendContextMenu(Menu* menu) override {
