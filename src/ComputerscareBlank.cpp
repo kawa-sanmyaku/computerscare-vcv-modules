@@ -1135,12 +1135,12 @@ struct ComputerscareBlankWidget : ModuleWidget {
 
 	}
 
-	void draw(const ComputerscareBGPanel::DrawArgs &args) {
+	void draw(const rack::Widget::DrawArgs &args) {
 		nvgBeginPath(args.vg);
-		nvgRect(args.vg, 0.0, 0.0, blankModule->width, blankModule->height);
+		nvgRect(args.vg, 0.0, 0.0, box.size.x, box.size.y);
 		nvgFillColor(args.vg, settings::preferDarkPanels ? nvgRGB(0x2d, 0x2d, 0x2d) : nvgRGB(0xe0, 0xe0, 0xd9));
 		nvgFill(args.vg);
-		Widget::draw(args);
+		ModuleWidget::draw(args);
 	}
 
 	void appendContextMenu(Menu* menu) override {
