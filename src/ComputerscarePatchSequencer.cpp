@@ -402,7 +402,7 @@ struct NumberDisplayWidget3 : TransparentWidget {
 
   int *value;
   ComputerscarePatchSequencer *module;
-  std::string fontPath = "res/digital-7.ttf";
+  std::string fontPath = "res/Segment7Standard.ttf";
 
   NumberDisplayWidget3() {
 
