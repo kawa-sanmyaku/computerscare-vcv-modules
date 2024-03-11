@@ -573,6 +573,52 @@ struct SmallLetterDisplay : Widget {
 	}
 };
 
+struct SmallLetterDisplayTEST : Widget {
+
+	std::string value;
+	std::string fontPath;
+	int fontSize = 19;
+	std::string defaultFontPath = "res/Oswald-Regular.ttf";
+	NVGcolor baseColor = COLOR_COMPUTERSCARE_TRANSPARENT;
+	NVGcolor textColor = nvgRGBA(0x10, 0x10, 0x00, 0x00);
+	Vec textOffset = Vec(0, 0);
+
+	float letterSpacing = 2.5;
+	int textAlign = 1;
+	bool active = false;
+	bool blink = false;
+	bool doubleblink = false;
+	float breakRowWidth = 80.f;
+
+	SmallLetterDisplayTEST() {
+		value = "";
+		fontPath = asset::plugin(pluginInstance, defaultFontPath);
+	};
+	SmallLetterDisplayTEST(std::string providedFontPath) {
+		value = "";
+		fontPath = asset::plugin(pluginInstance, providedFontPath);
+	};
+
+	void draw(const DrawArgs &ctx) override
+	{
+		// labels
+		std::shared_ptr<Font> font = APP->window->loadFont(fontPath);
+		if (font) {
+			nvgFontFaceId(ctx.vg, font->handle);
+			nvgFontSize(ctx.vg, fontSize);
+
+			nvgTextLetterSpacing(ctx.vg, letterSpacing);
+			nvgTextLineHeight(ctx.vg, 0.7);
+			nvgTextAlign(ctx.vg, textAlign);
+
+			Vec textPos = Vec(6.0f, 12.0f).plus(textOffset);
+			nvgFillColor(ctx.vg, settings::preferDarkPanels ? nvgRGB(0xef, 0xef, 0xff) : nvgRGB(0x10, 0x10, 0x00));
+			nvgTextBox(ctx.vg, textPos.x, textPos.y, breakRowWidth, value.c_str(), NULL);
+		}
+
+	}
+};
+
 #include "pointFunctions.hpp"
 #include "drawFunctions.hpp"
 #include "ComputerscarePolyModule.hpp"
