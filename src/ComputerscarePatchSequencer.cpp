@@ -429,7 +429,7 @@ struct NumberDisplayWidget3 : TransparentWidget {
     std::shared_ptr<Font> font = APP->window->loadFont(asset::plugin(pluginInstance, fontPath));
     if (font) {
       // text
-      nvgFontSize(args.vg, 13);
+      nvgFontSize(args.vg, 18);
       nvgFontFaceId(args.vg, font->handle);
       nvgTextLetterSpacing(args.vg, 2.5);
 
