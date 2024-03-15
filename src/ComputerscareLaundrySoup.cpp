@@ -98,7 +98,7 @@ struct ComputerscareLaundrySoup : Module {
   bool inError[numFields];
 
   bool jsonLoaded = false;
-  bool laundryInitialized = false;
+  bool laundryInitialized = true;
   int sampleCounter = 0;
 
 
