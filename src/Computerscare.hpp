@@ -457,7 +457,7 @@ struct ComputerscareTextField : ui::TextField {
 			nvgFillColor(args.vg, COLOR_COMPUTERSCARE_PINK);
 		}
 		else {
-			nvgFillColor(args.vg, nvgRGB(0x00, 0x00, 0x00));
+			nvgFillColor(args.vg, settings::preferDarkPanels ? nvgRGB(0x24, 0x44, 0x31) : nvgRGB(0x00, 0x00, 0x00));
 		}
 		nvgFill(args.vg);
 
