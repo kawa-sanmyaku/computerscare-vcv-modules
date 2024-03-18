@@ -1138,7 +1138,7 @@ struct ComputerscareBlankWidget : ModuleWidget {
 	void draw(const rack::Widget::DrawArgs &args) {
 		nvgBeginPath(args.vg);
 		nvgRect(args.vg, 0.0, 0.0, box.size.x, box.size.y);
-		nvgFillColor(args.vg, settings::preferDarkPanels ? nvgRGB(0x2d, 0x2d, 0x2d) : nvgRGB(0xe0, 0xe0, 0xd9));
+		nvgFillColor(args.vg, settings::preferDarkPanels ? nvgRGB(0x1f, 0x1f, 0x26) : nvgRGB(0xe0, 0xe0, 0xd9));
 		nvgFill(args.vg);
 		ModuleWidget::draw(args);
 	}
