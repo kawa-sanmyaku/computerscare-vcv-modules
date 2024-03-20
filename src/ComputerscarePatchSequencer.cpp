@@ -411,7 +411,7 @@ struct NumberDisplayWidget3 : TransparentWidget {
   void draw(const DrawArgs &args) override
   {
     // Background
-    NVGcolor backgroundColor = nvgRGB(0x00, 0x00, 0x00);
+    NVGcolor backgroundColor = settings::preferDarkPanels ? nvgRGB(0x24, 0x44, 0x31) : nvgRGB(0x00, 0x00, 0x00);
 
     nvgBeginPath(args.vg);
     nvgRoundedRect(args.vg, 0.0, 0.0, box.size.x, box.size.y, 4.0);
